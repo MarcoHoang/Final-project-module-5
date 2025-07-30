@@ -147,91 +147,234 @@ export default function ProductForm({ initialData, onSubmit, onCancel }) {
 
   if (loading) {
     return (
-      <div style={{ textAlign: "center", padding: "20px" }}>
-        <p>Đang tải dữ liệu...</p>
+      <div style={{ 
+        textAlign: "center", 
+        padding: "40px",
+        backgroundColor: "#f8f9fa",
+        borderRadius: "8px",
+        border: "1px solid #dee2e6"
+      }}>
+        <p style={{ fontSize: "16px", color: "#6c757d" }}>Đang tải dữ liệu...</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: "500px" }}>
-      <div style={{ marginBottom: "15px" }}>
-        <label style={{ display: "block", marginBottom: "5px" }}>Mã sản phẩm:</label>
-        <input
-          type="text"
-          name="code"
-          value={formData.code}
-          onChange={handleChange}
-          required
-          style={{ 
-            width: "100%", 
-            padding: "8px", 
-            border: errors.code ? "1px solid red" : "1px solid #ddd", 
-            borderRadius: "4px" 
-          }}
-        />
-        {errors.code && <span style={{ color: "red", fontSize: "12px" }}>{errors.code}</span>}
+    <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+      <div style={{ 
+        display: "grid", 
+        gridTemplateColumns: "1fr 1fr", 
+        gap: "30px",
+        marginBottom: "30px"
+      }}>
+        <div style={{ marginBottom: "20px" }}>
+          <label style={{ 
+            display: "block", 
+            marginBottom: "10px",
+            fontWeight: "600",
+            color: "#495057",
+            fontSize: "14px"
+          }}>
+            Mã sản phẩm:
+          </label>
+          <input
+            type="text"
+            name="code"
+            value={formData.code}
+            onChange={handleChange}
+            required
+            placeholder="VD: SP001"
+            style={{ 
+              width: "100%", 
+              padding: "12px 16px", 
+              border: errors.code ? "2px solid #dc3545" : "2px solid #ced4da", 
+              borderRadius: "8px",
+              fontSize: "14px",
+              transition: "all 0.3s ease",
+              backgroundColor: errors.code ? "#fff5f5" : "white"
+            }}
+            onFocus={(e) => {
+              e.target.style.borderColor = errors.code ? "#dc3545" : "#007bff";
+              e.target.style.boxShadow = "0 0 0 3px rgba(0,123,255,0.1)";
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = errors.code ? "#dc3545" : "#ced4da";
+              e.target.style.boxShadow = "none";
+            }}
+          />
+          {errors.code && (
+            <span style={{ 
+              color: "#dc3545", 
+              fontSize: "12px",
+              marginTop: "5px",
+              display: "block"
+            }}>
+              {errors.code}
+            </span>
+          )}
+        </div>
+        
+        <div style={{ marginBottom: "20px" }}>
+          <label style={{ 
+            display: "block", 
+            marginBottom: "10px",
+            fontWeight: "600",
+            color: "#495057",
+            fontSize: "14px"
+          }}>
+            Tên sản phẩm:
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            maxLength={100}
+            placeholder="Nhập tên sản phẩm"
+            style={{ 
+              width: "100%", 
+              padding: "12px 16px", 
+              border: errors.name ? "2px solid #dc3545" : "2px solid #ced4da", 
+              borderRadius: "8px",
+              fontSize: "14px",
+              transition: "all 0.3s ease",
+              backgroundColor: errors.name ? "#fff5f5" : "white"
+            }}
+            onFocus={(e) => {
+              e.target.style.borderColor = errors.name ? "#dc3545" : "#007bff";
+              e.target.style.boxShadow = "0 0 0 3px rgba(0,123,255,0.1)";
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = errors.name ? "#dc3545" : "#ced4da";
+              e.target.style.boxShadow = "none";
+            }}
+          />
+          {errors.name && (
+            <span style={{ 
+              color: "#dc3545", 
+              fontSize: "12px",
+              marginTop: "5px",
+              display: "block"
+            }}>
+              {errors.name}
+            </span>
+          )}
+        </div>
       </div>
       
-      <div style={{ marginBottom: "15px" }}>
-        <label style={{ display: "block", marginBottom: "5px" }}>Tên sản phẩm:</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          maxLength={100}
-          style={{ 
-            width: "100%", 
-            padding: "8px", 
-            border: errors.name ? "1px solid red" : "1px solid #ddd", 
-            borderRadius: "4px" 
-          }}
-        />
-        {errors.name && <span style={{ color: "red", fontSize: "12px" }}>{errors.name}</span>}
+      <div style={{ 
+        display: "grid", 
+        gridTemplateColumns: "1fr 1fr", 
+        gap: "30px",
+        marginBottom: "30px"
+      }}>
+        <div style={{ marginBottom: "20px" }}>
+          <label style={{ 
+            display: "block", 
+            marginBottom: "10px",
+            fontWeight: "600",
+            color: "#495057",
+            fontSize: "14px"
+          }}>
+            Ngày nhập:
+          </label>
+          <input
+            type="date"
+            name="importDate"
+            value={formData.importDate}
+            onChange={handleChange}
+            required
+            max={new Date().toISOString().split('T')[0]}
+            style={{ 
+              width: "100%", 
+              padding: "12px 16px", 
+              border: errors.importDate ? "2px solid #dc3545" : "2px solid #ced4da", 
+              borderRadius: "8px",
+              fontSize: "14px",
+              transition: "all 0.3s ease",
+              backgroundColor: errors.importDate ? "#fff5f5" : "white"
+            }}
+            onFocus={(e) => {
+              e.target.style.borderColor = errors.importDate ? "#dc3545" : "#007bff";
+              e.target.style.boxShadow = "0 0 0 3px rgba(0,123,255,0.1)";
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = errors.importDate ? "#dc3545" : "#ced4da";
+              e.target.style.boxShadow = "none";
+            }}
+          />
+          {errors.importDate && (
+            <span style={{ 
+              color: "#dc3545", 
+              fontSize: "12px",
+              marginTop: "5px",
+              display: "block"
+            }}>
+              {errors.importDate}
+            </span>
+          )}
+        </div>
+        
+        <div style={{ marginBottom: "20px" }}>
+          <label style={{ 
+            display: "block", 
+            marginBottom: "10px",
+            fontWeight: "600",
+            color: "#495057",
+            fontSize: "14px"
+          }}>
+            Số lượng:
+          </label>
+          <input
+            type="number"
+            name="quantity"
+            value={formData.quantity}
+            onChange={handleChange}
+            required
+            min="1"
+            placeholder="Nhập số lượng"
+            style={{ 
+              width: "100%", 
+              padding: "12px 16px", 
+              border: errors.quantity ? "2px solid #dc3545" : "2px solid #ced4da", 
+              borderRadius: "8px",
+              fontSize: "14px",
+              transition: "all 0.3s ease",
+              backgroundColor: errors.quantity ? "#fff5f5" : "white"
+            }}
+            onFocus={(e) => {
+              e.target.style.borderColor = errors.quantity ? "#dc3545" : "#007bff";
+              e.target.style.boxShadow = "0 0 0 3px rgba(0,123,255,0.1)";
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = errors.quantity ? "#dc3545" : "#ced4da";
+              e.target.style.boxShadow = "none";
+            }}
+          />
+          {errors.quantity && (
+            <span style={{ 
+              color: "#dc3545", 
+              fontSize: "12px",
+              marginTop: "5px",
+              display: "block"
+            }}>
+              {errors.quantity}
+            </span>
+          )}
+        </div>
       </div>
       
-      <div style={{ marginBottom: "15px" }}>
-        <label style={{ display: "block", marginBottom: "5px" }}>Ngày nhập:</label>
-        <input
-          type="date"
-          name="importDate"
-          value={formData.importDate}
-          onChange={handleChange}
-          required
-          max={new Date().toISOString().split('T')[0]}
-          style={{ 
-            width: "100%", 
-            padding: "8px", 
-            border: errors.importDate ? "1px solid red" : "1px solid #ddd", 
-            borderRadius: "4px" 
-          }}
-        />
-        {errors.importDate && <span style={{ color: "red", fontSize: "12px" }}>{errors.importDate}</span>}
-      </div>
-      
-      <div style={{ marginBottom: "15px" }}>
-        <label style={{ display: "block", marginBottom: "5px" }}>Số lượng:</label>
-        <input
-          type="number"
-          name="quantity"
-          value={formData.quantity}
-          onChange={handleChange}
-          required
-          min="1"
-          style={{ 
-            width: "100%", 
-            padding: "8px", 
-            border: errors.quantity ? "1px solid red" : "1px solid #ddd", 
-            borderRadius: "4px" 
-          }}
-        />
-        {errors.quantity && <span style={{ color: "red", fontSize: "12px" }}>{errors.quantity}</span>}
-      </div>
-      
-      <div style={{ marginBottom: "15px" }}>
-        <label style={{ display: "block", marginBottom: "5px" }}>Loại sản phẩm:</label>
+      <div style={{ marginBottom: "35px" }}>
+        <label style={{ 
+          display: "block", 
+          marginBottom: "10px",
+          fontWeight: "600",
+          color: "#495057",
+          fontSize: "14px"
+        }}>
+          Loại sản phẩm:
+        </label>
         <select
           name="categoryId"
           value={formData.categoryId}
@@ -239,9 +382,20 @@ export default function ProductForm({ initialData, onSubmit, onCancel }) {
           required
           style={{ 
             width: "100%", 
-            padding: "8px", 
-            border: "1px solid #ddd", 
-            borderRadius: "4px" 
+            padding: "12px 16px", 
+            border: "2px solid #ced4da", 
+            borderRadius: "8px",
+            fontSize: "14px",
+            transition: "all 0.3s ease",
+            backgroundColor: "white"
+          }}
+          onFocus={(e) => {
+            e.target.style.borderColor = "#007bff";
+            e.target.style.boxShadow = "0 0 0 3px rgba(0,123,255,0.1)";
+          }}
+          onBlur={(e) => {
+            e.target.style.borderColor = "#ced4da";
+            e.target.style.boxShadow = "none";
           }}
         >
           <option value="">-- Chọn loại sản phẩm --</option>
@@ -252,23 +406,46 @@ export default function ProductForm({ initialData, onSubmit, onCancel }) {
           ))}
         </select>
         {categories.length === 0 && (
-          <span style={{ color: "orange", fontSize: "12px" }}>
+          <span style={{ 
+            color: "#ffc107", 
+            fontSize: "12px",
+            marginTop: "5px",
+            display: "block"
+          }}>
             Đang tải danh sách loại sản phẩm...
           </span>
         )}
       </div>
       
-      <div style={{ marginTop: "20px" }}>
+      <div style={{ 
+        display: "flex", 
+        justifyContent: "center", 
+        gap: "20px",
+        marginTop: "40px"
+      }}>
         <button 
           type="submit" 
           style={{ 
-            padding: "10px 20px", 
-            backgroundColor: "#007bff", 
+            padding: "12px 30px", 
+            backgroundColor: "#28a745", 
             color: "white", 
             border: "none", 
-            borderRadius: "4px", 
-            marginRight: "10px",
-            cursor: "pointer"
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontWeight: "600",
+            transition: "all 0.3s ease",
+            boxShadow: "0 2px 4px rgba(40,167,69,0.2)"
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "#218838";
+            e.target.style.transform = "translateY(-2px)";
+            e.target.style.boxShadow = "0 4px 8px rgba(40,167,69,0.3)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = "#28a745";
+            e.target.style.transform = "translateY(0)";
+            e.target.style.boxShadow = "0 2px 4px rgba(40,167,69,0.2)";
           }}
         >
           Lưu
@@ -277,12 +454,26 @@ export default function ProductForm({ initialData, onSubmit, onCancel }) {
           type="button" 
           onClick={onCancel}
           style={{ 
-            padding: "10px 20px", 
+            padding: "12px 30px", 
             backgroundColor: "#6c757d", 
             color: "white", 
             border: "none", 
-            borderRadius: "4px",
-            cursor: "pointer"
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontSize: "16px",
+            fontWeight: "600",
+            transition: "all 0.3s ease",
+            boxShadow: "0 2px 4px rgba(108,117,125,0.2)"
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = "#5a6268";
+            e.target.style.transform = "translateY(-2px)";
+            e.target.style.boxShadow = "0 4px 8px rgba(108,117,125,0.3)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = "#6c757d";
+            e.target.style.transform = "translateY(0)";
+            e.target.style.boxShadow = "0 2px 4px rgba(108,117,125,0.2)";
           }}
         >
           Hủy

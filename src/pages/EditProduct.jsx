@@ -78,24 +78,66 @@ export default function EditProduct() {
 
   if (loading) {
     return (
-      <div style={{ textAlign: "center", padding: "20px" }}>
-        <p>Đang tải dữ liệu sản phẩm...</p>
+      <div style={{ 
+        display: "flex", 
+        justifyContent: "center", 
+        alignItems: "center",
+        minHeight: "60vh"
+      }}>
+        <div style={{
+          textAlign: "center",
+          padding: "40px",
+          backgroundColor: "white",
+          borderRadius: "12px",
+          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+          border: "1px solid #e9ecef"
+        }}>
+          <p style={{ fontSize: "18px", color: "#6c757d" }}>Đang tải dữ liệu sản phẩm...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Cập nhật sản phẩm</h2>
-      {initialData ? (
-        <ProductForm 
-          initialData={initialData} 
-          onSubmit={handleSubmit} 
-          onCancel={handleCancel}
-        />
-      ) : (
-        <p>Không tìm thấy sản phẩm</p>
-      )}
+    <div style={{ 
+      display: "flex", 
+      flexDirection: "column", 
+      alignItems: "center",
+      minHeight: "60vh",
+      padding: "20px"
+    }}>
+      <div style={{
+        width: "100%",
+        maxWidth: "800px",
+        backgroundColor: "white",
+        borderRadius: "12px",
+        boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+        padding: "40px",
+        border: "1px solid #e9ecef"
+      }}>
+        <h2 style={{ 
+          textAlign: "center", 
+          marginBottom: "40px",
+          color: "#2c3e50",
+          fontSize: "2rem",
+          fontWeight: "700",
+          borderBottom: "3px solid #17a2b8",
+          paddingBottom: "15px"
+        }}>
+          Cập nhật sản phẩm
+        </h2>
+        {initialData ? (
+          <ProductForm 
+            initialData={initialData} 
+            onSubmit={handleSubmit} 
+            onCancel={handleCancel}
+          />
+        ) : (
+          <div style={{ textAlign: "center", padding: "20px" }}>
+            <p style={{ color: "#dc3545", fontSize: "16px" }}>Không tìm thấy sản phẩm</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

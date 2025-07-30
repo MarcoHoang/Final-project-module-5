@@ -166,16 +166,29 @@ export default function ProductList({ searchKeyword, searchCategory }) {
                   <button 
                     onClick={() => navigate(`/edit/${product.id}`)}
                     style={{ 
-                      padding: "6px 12px", 
-                      backgroundColor: "#007bff", 
+                      padding: "8px 16px", 
+                      backgroundColor: "#17a2b8", 
                       color: "white", 
                       border: "none", 
-                      borderRadius: "4px",
+                      borderRadius: "6px",
                       cursor: "pointer",
-                      fontSize: "12px"
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      transition: "all 0.3s ease",
+                      boxShadow: "0 2px 4px rgba(23,162,184,0.2)"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = "#138496";
+                      e.target.style.transform = "translateY(-1px)";
+                      e.target.style.boxShadow = "0 4px 8px rgba(23,162,184,0.3)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = "#17a2b8";
+                      e.target.style.transform = "translateY(0)";
+                      e.target.style.boxShadow = "0 2px 4px rgba(23,162,184,0.2)";
                     }}
                   >
-                    Sửa
+                    Cập nhật
                   </button>
                 </td>
               </tr>
@@ -198,13 +211,30 @@ export default function ProductList({ searchKeyword, searchCategory }) {
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
             style={{
-              padding: "8px 12px",
+              padding: "10px 16px",
               backgroundColor: currentPage === 1 ? "#6c757d" : "#007bff",
               color: "white",
               border: "none",
-              borderRadius: "4px",
+              borderRadius: "6px",
               cursor: currentPage === 1 ? "not-allowed" : "pointer",
-              fontSize: "14px"
+              fontSize: "14px",
+              fontWeight: "600",
+              transition: "all 0.3s ease",
+              boxShadow: currentPage === 1 ? "none" : "0 2px 4px rgba(0,123,255,0.2)"
+            }}
+            onMouseEnter={(e) => {
+              if (currentPage !== 1) {
+                e.target.style.backgroundColor = "#0056b3";
+                e.target.style.transform = "translateY(-1px)";
+                e.target.style.boxShadow = "0 4px 8px rgba(0,123,255,0.3)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (currentPage !== 1) {
+                e.target.style.backgroundColor = "#007bff";
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = "0 2px 4px rgba(0,123,255,0.2)";
+              }
             }}
           >
             Trước
@@ -217,14 +247,31 @@ export default function ProductList({ searchKeyword, searchCategory }) {
               onClick={() => typeof number === 'number' ? paginate(number) : null}
               disabled={number === '...'}
               style={{
-                padding: "8px 12px",
+                padding: "10px 16px",
                 backgroundColor: number === currentPage ? "#007bff" : "#f8f9fa",
                 color: number === currentPage ? "white" : "#007bff",
-                border: "1px solid #dee2e6",
-                borderRadius: "4px",
+                border: "2px solid #dee2e6",
+                borderRadius: "6px",
                 cursor: number === '...' ? "default" : "pointer",
                 fontSize: "14px",
-                minWidth: "40px"
+                fontWeight: "600",
+                minWidth: "45px",
+                transition: "all 0.3s ease",
+                boxShadow: number === currentPage ? "0 2px 4px rgba(0,123,255,0.3)" : "none"
+              }}
+              onMouseEnter={(e) => {
+                if (number !== '...' && number !== currentPage) {
+                  e.target.style.backgroundColor = "#e3f2fd";
+                  e.target.style.transform = "translateY(-1px)";
+                  e.target.style.boxShadow = "0 2px 4px rgba(0,123,255,0.2)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (number !== '...' && number !== currentPage) {
+                  e.target.style.backgroundColor = "#f8f9fa";
+                  e.target.style.transform = "translateY(0)";
+                  e.target.style.boxShadow = "none";
+                }
               }}
             >
               {number}
@@ -236,13 +283,30 @@ export default function ProductList({ searchKeyword, searchCategory }) {
             onClick={() => paginate(currentPage + 1)}
             disabled={currentPage === totalPages}
             style={{
-              padding: "8px 12px",
+              padding: "10px 16px",
               backgroundColor: currentPage === totalPages ? "#6c757d" : "#007bff",
               color: "white",
               border: "none",
-              borderRadius: "4px",
+              borderRadius: "6px",
               cursor: currentPage === totalPages ? "not-allowed" : "pointer",
-              fontSize: "14px"
+              fontSize: "14px",
+              fontWeight: "600",
+              transition: "all 0.3s ease",
+              boxShadow: currentPage === totalPages ? "none" : "0 2px 4px rgba(0,123,255,0.2)"
+            }}
+            onMouseEnter={(e) => {
+              if (currentPage !== totalPages) {
+                e.target.style.backgroundColor = "#0056b3";
+                e.target.style.transform = "translateY(-1px)";
+                e.target.style.boxShadow = "0 4px 8px rgba(0,123,255,0.3)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (currentPage !== totalPages) {
+                e.target.style.backgroundColor = "#007bff";
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = "0 2px 4px rgba(0,123,255,0.2)";
+              }
             }}
           >
             Sau
@@ -253,12 +317,19 @@ export default function ProductList({ searchKeyword, searchCategory }) {
       {/* Thông tin phân trang */}
       <div style={{ 
         textAlign: "center", 
-        marginTop: "10px", 
-        color: "#6c757d", 
-        fontSize: "14px" 
+        marginTop: "15px", 
+        padding: "12px 20px",
+        backgroundColor: "#e3f2fd",
+        borderRadius: "8px",
+        border: "1px solid #bbdefb",
+        color: "#1976d2",
+        fontSize: "14px",
+        fontWeight: "600",
+        boxShadow: "0 2px 4px rgba(25,118,210,0.1)"
       }}>
-        Hiển thị {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, filteredProducts.length)} 
-        trong tổng số {filteredProducts.length} sản phẩm
+        Hiển thị sản phẩm <strong>{indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, filteredProducts.length)} </strong> 
+        trong tổng số <strong>{filteredProducts.length}</strong> sản phẩm 
+        {totalPages > 1 && ` (Trang ${currentPage}/${totalPages})`}
       </div>
     </div>
   );
