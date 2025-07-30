@@ -1,0 +1,190 @@
+/* === THIẾT LẬP CHUNG & LAYOUT === */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f6f8; /* Màu nền xám nhẹ chuyên nghiệp */
+  color: #333;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* Thay đổi quan trọng: Căn lề trái cho nội dung ứng dụng */
+  text-align: left;
+}
+
+h1, h2 {
+  color: #2c3e50;
+  text-align: center; /* Giữ tiêu đề chính giữa trang */
+  margin-bottom: 2rem;
+}
+
+/* === THANH TÌM KIẾM (Yêu cầu 3) === */
+.search-container {
+  display: flex;
+  gap: 1rem; /* Khoảng cách giữa các ô input */
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+.search-container input,
+.search-container select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.search-container input[type="text"] {
+  flex-grow: 1; /* Cho ô tìm kiếm tên chiếm nhiều không gian hơn */
+  max-width: 400px;
+}
+
+/* === BẢNG HIỂN THỊ DANH SÁCH SẢN PHẨM (Yêu cầu 1) === */
+.product-table {
+  width: 100%;
+  border-collapse: collapse; /* Gộp đường viền cho gọn gàng */
+  margin-top: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden; /* Để bo góc có tác dụng với table */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-table th,
+.product-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Tiêu đề của bảng */
+.product-table th {
+  background-color: #007bff; /* Màu xanh dương cho header */
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+
+/* Hiệu ứng cho các dòng trong bảng */
+.product-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Hiệu ứng ngựa vằn */
+}
+
+.product-table tr:hover {
+  background-color: #f1f1f1; /* Highlight khi di chuột qua */
+}
+
+.product-table td {
+  color: #555;
+}
+
+/* === FORM CẬP NHẬT (Yêu cầu 2) === */
+.form-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Quan trọng để padding không làm vỡ layout */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* === NÚT BẤM (BUTTONS) === */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none; /* Áp dụng cho thẻ <Link> */
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Nút chính (ví dụ: Cập nhật, Thêm mới) */
+.btn-primary {
+  background-color: #28a745; /* Màu xanh lá */
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #218838;
+}
+
+/* Nút phụ (ví dụ: Sửa) */
+.btn-secondary {
+  background-color: #ffc107; /* Màu vàng */
+  color: #212529;
+}
+.btn-secondary:hover {
+  background-color: #e0a800;
+}
+
+/* Nút điều hướng (ví dụ: Quay lại) */
+.btn-light {
+    background-color: #6c757d; /* Màu xám */
+    color: white;
+}
+.btn-light:hover {
+    background-color: #5a6268;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* Căn các nút về bên phải */
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* === THÔNG BÁO (Yêu cầu 3) === */
+.notification-panel {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: #f8f9fa;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  color: #6c757d;
+  font-size: 1.2rem;
+}

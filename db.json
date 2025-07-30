@@ -1,0 +1,116 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "code": "SP001",
+      "name": "Áo thun nam basic",
+      "importDate": "2024-01-15",
+      "quantity": 50,
+      "categoryId": 1,
+      "description": "Chất liệu cotton thoáng mát, phù hợp mặc hàng ngày."
+    },
+    {
+      "id": 2,
+      "code": "SP002",
+      "name": "Quần jeans nữ rách gối",
+      "importDate": "2024-01-20",
+      "quantity": 30,
+      "categoryId": 2,
+      "description": "Phong cách cá tính, chất vải co giãn nhẹ."
+    },
+    {
+      "id": 3,
+      "code": "SP003",
+      "name": "Áo sơ mi caro",
+      "importDate": "2024-01-25",
+      "quantity": 40,
+      "categoryId": 1,
+      "description": "Áo sơ mi tay dài, họa tiết caro cổ điển."
+    },
+    {
+      "id": 4,
+      "code": "SP004",
+      "name": "Váy xòe hoa nhí",
+      "importDate": "2024-02-01",
+      "quantity": 25,
+      "categoryId": 3,
+      "description": "Váy nhẹ nhàng, nữ tính, thích hợp đi chơi hoặc hẹn hò."
+    },
+    {
+      "id": 5,
+      "code": "SP005",
+      "name": "Quần short kaki nam",
+      "importDate": "2024-02-05",
+      "quantity": 35,
+      "categoryId": 2,
+      "description": "Phong cách năng động, chất kaki dày dặn."
+    },
+    {
+      "id": 6,
+      "code": "SP006",
+      "name": "Áo khoác denim",
+      "importDate": "2024-02-10",
+      "quantity": 20,
+      "categoryId": 1,
+      "description": "Áo khoác denim phong cách, phù hợp mọi lứa tuổi."
+    },
+    {
+      "id": 7,
+      "code": "SP007",
+      "name": "Quần jogger nữ",
+      "importDate": "2024-02-15",
+      "quantity": 45,
+      "categoryId": 2,
+      "description": "Quần jogger thoải mái, thích hợp tập luyện và mặc hàng ngày."
+    },
+    {
+      "id": 8,
+      "code": "SP008",
+      "name": "Váy đầm dự tiệc",
+      "importDate": "2024-02-20",
+      "quantity": 15,
+      "categoryId": 3,
+      "description": "Váy đầm sang trọng, phù hợp các buổi tiệc quan trọng."
+    },
+    {
+      "id": 9,
+      "code": "SP009",
+      "name": "Áo len mùa đông",
+      "importDate": "2024-02-25",
+      "quantity": 60,
+      "categoryId": 1,
+      "description": "Áo len ấm áp, thích hợp mùa đông."
+    },
+    {
+      "id": 10,
+      "code": "SP010",
+      "name": "Quần tây công sở",
+      "importDate": "2024-03-01",
+      "quantity": 55,
+      "categoryId": 2,
+      "description": "Quần tây lịch sự, phù hợp môi trường công sở."
+    },
+    {
+      "code": "SP0012",
+      "name": "Sản phẩm 10",
+      "importDate": "2025-06-12",
+      "quantity": 12,
+      "categoryId": 3,
+      "id": 11
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Áo"
+    },
+    {
+      "id": 2,
+      "name": "Quần"
+    },
+    {
+      "id": 3,
+      "name": "Váy"
+    }
+  ]
+}
